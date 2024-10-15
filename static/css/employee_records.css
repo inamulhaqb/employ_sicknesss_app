@@ -1,0 +1,47 @@
+.table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Merge borders */
+}
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Add border to cells */
+    padding: 10px; /* Add padding */
+    text-align: left; /* Align text to the left */
+}
+nav {
+    margin: 15px 0;
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+nav ul li {
+    display: inline; /* Display list items in a single row */
+    margin: 0 15px; /* Space between tabs */
+}
+
+nav a {
+    color: white;
+    text-decoration: none; /* Remove underline from links */
+}
+
+nav a:hover,
+nav a.active {
+    text-decoration: underline; /* Add underline on hover and active */
+}
+
+.table th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+.table tr:hover {
+    background-color: #ddd; /* Change background on hover */
+}

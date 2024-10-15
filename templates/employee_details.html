@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<header>
+        <a href="{{ url_for('index') }}">Home</a>
+</header>
+<body>
+    <h1>Employee Details</h1>
+    <form id="employee-details_form" method="get" action="/show_employee_details">
+
+    {% if employee_data_list %}
+        {% for employee  in employee_data_list %}
+            <h2>Employee: {{ employee.name }}</h2>
+            <p>Department: {{ employee.department }}</p>
+            <p>Bradford Factor: {{ employee.bradford_factor }}</p>
+
+            <h3>Absence Records</h3>
+            <table>
+                <tr>
+<!--                    <th>Absence ID</th>-->
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Reason</th>
+                    <th>Duration (days)</th>
+                </tr>
+                {% for absence in employee.absences %}
+                <tr>
+<!--                    <td>{{ absence.sickness_absence_id }}</td>-->
+                    <td>{{ absence.start_date }}</td>
+                    <td>{{ absence.end_date }}</td>
+                    <td>{{ absence.reason }}</td>
+                    <td>{{ absence.duration_days }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>No employee data available.</p>
+    {% endif %}
+    </form>
+</body>
+</html>

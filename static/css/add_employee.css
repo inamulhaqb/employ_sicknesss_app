@@ -1,0 +1,63 @@
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 400px; /* Limit form width */
+}
+nav {
+    margin: 15px 0;
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+nav ul li {
+    display: inline; /* Display list items in a single row */
+    margin: 0 15px; /* Space between tabs */
+}
+
+nav a {
+    color: white;
+    text-decoration: none; /* Remove underline from links */
+}
+
+nav a:hover,
+nav a.active {
+    text-decoration: underline; /* Add underline on hover and active */
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#successMessage {
+    color: green;
+    margin-top: 15px;
+}

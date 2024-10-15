@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+</head>
+<header>
+        <a href="{{ url_for('index') }}">Home</a>
+</header>
+<body>
+    <h1>Add Employee</h1>
+    <form id="employee-form" method="POST" action="/add_absence">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+   <script>
+    document.getElementById('employee-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const name = document.getElementById('name').value;
+        const department = document.getElementById('department').value;
+
+        console.log(`Sending data: Name: ${name}, Department: ${department}`);  // Debugging print
+
+        fetch('/add_employee', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                department: department
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Employee added successfully!');
+            } else {
+                alert('Error adding employee');
+            }
+            console.log('Server response:', data);  // Debugging print
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+</body>
+</html>

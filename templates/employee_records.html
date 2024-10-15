@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/employee_records.css') }}">
+    <title>Employee Records</title>
+</head>
+<body>
+<header>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('add_employee') }}">Add Employee</a></li>
+        <li><a href="{{ url_for('add_sick_leave') }}">Add Sick Leave</a></li>
+        <li><a href="{{ url_for('employee_records') }}">Employee Records</a></li>
+    </ul>
+    <h1>Employee Records</h1>
+</header>
+<main>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Bradford Factor</th>
+        </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+        <!-- Employee records will be populated here -->
+        </tbody>
+    </table>
+</main>
+<footer>
+    <p>&copy; 2024 HR Employ managment</p>
+</footer>
+<script src="{{ url_for('static', filename='js/employee_records.js') }}"></script>
+</body>
+</html>

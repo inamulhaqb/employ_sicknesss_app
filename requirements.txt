@@ -1,0 +1,17 @@
+Flask 
+Flask-SQLAlchemy
+psycopg2
+psycopg2-binary
+flask_mysqldb
+psycopg2
+jsonify
+python-dotenv
+reportlab
+fpdf
+WeasyPrint
+cairocffi cairosvg
+pdfkit
+wkhtmltopdf
+xhtml2pdf
+pandas
+openpyxl
